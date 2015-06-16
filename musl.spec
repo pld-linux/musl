@@ -7,6 +7,7 @@ License:	MIT
 Group:		Libraries
 Source0:	http://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	fc30892ee582c91920505bbd0021049f
+Patch0:		musl-locale.patch
 URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	zlib-devel
@@ -53,6 +54,7 @@ Pliki programistyczne biblioteki musl libc.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure \
