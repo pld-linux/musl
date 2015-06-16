@@ -12,7 +12,7 @@ URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	zlib-devel
 Requires:	uname(release) >= 2.6.0
-ExclusiveArch:	%{ix86} %{x8664} arm mips microblaze ppc
+ExclusiveArch:	%{ix86} %{x8664} x32 arm mips microblaze ppc
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -23,6 +23,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # i386, x86_64, arm, mips, microblaze, ppc
 %define		musl_arch	%{_target_base_arch}
+
+%ifarch x32
+%undefine	musl_arch
+%define		musl_arch	x32
+%endif
 
 %description
 musl libc is a new standard library to power a new generation of
