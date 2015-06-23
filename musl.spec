@@ -21,12 +21,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_fortify_cflags	%{nil}
 %define		_ssp_cflags	%{nil}
 
-# i386, x86_64, arm, mips, microblaze, ppc
-%define		musl_arch	%{_target_base_arch}
-
+# i386, x86_64, x32, arm, mips, microblaze, ppc
 %ifarch x32
-%undefine	musl_arch
 %define		musl_arch	x32
+%else
+%define		musl_arch	%{_target_base_arch}
 %endif
 
 %description
