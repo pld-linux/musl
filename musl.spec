@@ -68,6 +68,10 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# move actual library to /lib to handle /usr mounts
+mv $RPM_BUILD_ROOT{%{_libdir}/libc.so,/%{_lib}/ld-musl-%{musl_arch}.so.1}
+ln -s /%{_lib}/ld-musl-%{musl_arch}.so.1 $RPM_BUILD_ROOT%{_libdir}/libc.so
+
 install -d $RPM_BUILD_ROOT%{_sysconfdir}
 echo '%{_libdir}' > $RPM_BUILD_ROOT%{_sysconfdir}/ld-musl-%{musl_arch}.path
 
