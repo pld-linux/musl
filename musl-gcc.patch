@@ -1,0 +1,11 @@
+--- musl-1.1.15/Makefile~	2016-07-06 00:58:46.000000000 +0300
++++ musl-1.1.15/Makefile	2016-09-18 22:35:27.074044634 +0300
+@@ -186,7 +186,7 @@
+ 	sh $< "$(includedir)" "$(libdir)" "$(LDSO_PATHNAME)" > $@
+ 
+ obj/musl-gcc: config.mak
+-	printf '#!/bin/sh\nexec "$${REALGCC:-$(WRAPCC_GCC)}" "$$@" -specs "%s/musl-gcc.specs"\n' "$(libdir)" > $@
++	printf '#!/bin/sh\nexec $${REALGCC:-$(WRAPCC_GCC)} "$$@" -specs "%s/musl-gcc.specs"\n' "$(libdir)" > $@
+ 	chmod +x $@
+ 
+ obj/%-clang: $(srcdir)/tools/%-clang.in config.mak
