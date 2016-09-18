@@ -2,7 +2,7 @@ Summary:	musl libc - new standard library to power a new generation of Linux-bas
 Summary(pl.UTF-8):	musl libc - nowa biblioteka standardowa dla urządzeń linuksowych nowej generacji
 Name:		musl
 Version:	1.1.15
-Release:	1.2
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	http://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
@@ -63,7 +63,11 @@ Pliki programistyczne biblioteki musl libc.
 %build
 %configure \
 	--syslibdir=/%{_lib}
-%{__make}
+
+# WRAPCC_GCC that will be used as $REALGCC fallback in musl-gcc script
+# regardless what is value when this package is built (ccache, etc)
+%{__make} \
+	WRAPCC_GCC="%{_target_platform}-gcc"
 
 %install
 rm -rf $RPM_BUILD_ROOT
