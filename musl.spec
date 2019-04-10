@@ -1,12 +1,12 @@
 Summary:	musl libc - new standard library to power a new generation of Linux-based devices
 Summary(pl.UTF-8):	musl libc - nowa biblioteka standardowa dla urządzeń linuksowych nowej generacji
 Name:		musl
-Version:	1.1.16
+Version:	1.1.22
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	http://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	ac52ccaec6b06ab0f289d37e8436859b
+# Source0-md5:	10d243dad141477fbb033f7d1e20477c
 Patch0:		%{name}-gcc.patch
 URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
