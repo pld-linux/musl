@@ -10,6 +10,7 @@ Source0:	http://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
 Patch0:		%{name}-gcc.patch
 URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
+BuildRequires:	rpmbuild(macros) >= 2.007
 BuildRequires:	zlib-devel
 Requires:	uname(release) >= 2.6.0
 ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64 mips microblaze ppc
@@ -24,7 +25,11 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 # i386, x86_64, x32, arm, mips, microblaze, ppc
 %ifarch x32
 %define		musl_arch	x32
-%else
+%endif
+%ifarch %{arm32_with_hf}
+%define		musl_arch	armhf
+%endif
+%ifnarch x32 %{arm32_with_hf}
 %define		musl_arch	%{_target_base_arch}
 %endif
 
