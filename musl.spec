@@ -5,7 +5,7 @@ Version:	1.2.3
 Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	http://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
+Source0:	https://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	a507ae4f7f20bcfe566d8eb65c1af73e
 Patch0:		%{name}-gcc.patch
 URL:		http://www.musl-libc.org/
