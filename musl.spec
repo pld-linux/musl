@@ -12,7 +12,7 @@ URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	zlib-devel
 Requires:	uname(release) >= 2.6.0
-ExclusiveArch:	%{ix86} %{x8664} x32 arm mips microblaze ppc
+ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64 mips microblaze ppc
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
