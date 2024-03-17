@@ -1,19 +1,19 @@
 Summary:	musl libc - new standard library to power a new generation of Linux-based devices
 Summary(pl.UTF-8):	musl libc - nowa biblioteka standardowa dla urządzeń linuksowych nowej generacji
 Name:		musl
-Version:	1.2.4
+Version:	1.2.5
 Release:	1
 License:	MIT
 Group:		Libraries
 Source0:	https://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
-# Source0-md5:	ba95cb2c0ba278f081f96380be555fce
+# Source0-md5:	ac5cfde7718d0547e224247ccfe59f18
 Patch0:		%{name}-gcc.patch
 URL:		http://www.musl-libc.org/
 BuildRequires:	gcc >= 5:3.2
 BuildRequires:	rpmbuild(macros) >= 2.007
 BuildRequires:	zlib-devel
 Requires:	uname(release) >= 2.6.0
-ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64 mips microblaze ppc
+ExclusiveArch:	%{ix86} %{x8664} x32 %{arm} aarch64 loongarch64 mips microblaze ppc riscv32
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,7 +22,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		_fortify_cflags	%{nil}
 %define		_ssp_cflags	%{nil}
 
-# i386, x86_64, x32, arm, mips, microblaze, ppc
 %ifarch x32
 %define		musl_arch	x32
 %endif
