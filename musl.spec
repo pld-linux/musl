@@ -5,7 +5,8 @@ Version:	1.2.5
 Release:	1
 License:	MIT
 Group:		Libraries
-Source0:	https://www.musl-libc.org/releases/%{name}-%{version}.tar.gz
+#Source0Download: https://musl.libc.org/releases.html
+Source0:	https://musl-libc.org/releases/%{name}-%{version}.tar.gz
 # Source0-md5:	ac5cfde7718d0547e224247ccfe59f18
 Patch0:		%{name}-gcc.patch
 URL:		http://www.musl-libc.org/
